@@ -22,8 +22,11 @@
         displayTodos();
       }
 
-      // It should have a way to change todos.
-      todos[0] = 'changed!';
+      // It should have a function to change todos.
+      function changeTodo(position, newValue) {
+        todos[position] = newValue;
+        displayTodos();
+      }
 
       // It should have a way to delete todos.
       todos.splice(0, 1);
