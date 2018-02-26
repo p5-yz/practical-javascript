@@ -16,8 +16,11 @@
         console.log('My todos:', todos);
       }
 
-      // It should have a way to add todos.
-      todos.push('item 4');
+      // It should have a function to add todos.
+      function addTodo(todo) {
+        todos.push(todo);
+        displayTodos();
+      }
 
       // It should have a way to change todos.
       todos[0] = 'changed!';
