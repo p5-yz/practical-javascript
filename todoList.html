@@ -20,8 +20,8 @@
           });
           this.displayTodos();
         },
-        changeTodo: function (position, newValue) {
-          this.todos[position] = newValue;
+        changeTodo: function (position, newTodoText) {
+          this.todos[position].todoText = newTodoText;
           this.displayTodos();
         },
         deleteTodo: function (position) {
