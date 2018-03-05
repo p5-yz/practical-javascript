@@ -42,6 +42,25 @@
         toggleOne: function (position) {
           this.todos[position].completed = !this.todos[position].completed;
           this.displayTodos();
+        },
+        toggleAll: function () {
+          var completedTodos = 0;
+
+          // Get number of completed todos.
+          for (var i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].completed === true) {
+              completedTodos++;
+            }
+          }
+
+          // Case 1: If everything's true, make everything false.
+          if (completedTodos === this.todos.length) {
+            for (var i = 0; i < this.todos.length; i++) {
+              this.todos[i].completed = false;
+            }
+          }
+
+          this.displayTodos();
         }
       };
 
