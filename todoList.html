@@ -14,6 +14,8 @@
     <button id='changeTodoButton'>Change Todo</button>
     <input id='changeTodoPositionInput' type='number'>
     <input id='changeTodoTextInput' type='text'>
+    <button id='deleteTodoButton'>Delete Todo</button>
+    <input id='deleteTodoPositionInput' type='number'>
 
     <script>
 
@@ -106,6 +108,14 @@
         todoList.changeTodo(changeTodoPositionInput.value, changeTodoTextInput.value);
         changeTodoPositionInput.value = '';
         changeTodoTextInput.value = '';
+      });
+
+      var deleteTodoButton = document.getElementById('deleteTodoButton');
+      var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+
+      deleteTodoButton.addEventListener('click', function () {
+        todoList.deleteTodo(deleteTodoPositionInput.value);
+        deleteTodoPositionInput.value = '';
       });
 
     </script>
