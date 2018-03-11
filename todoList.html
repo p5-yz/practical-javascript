@@ -44,6 +44,7 @@
           todosUl.innerHTML = '';
           for (var i = 0; i < this.todos.length; i++) {
             var todoLi = document.createElement('li');
+            todoLi.textContent = this.todos[i].todoText;
             todosUl.appendChild(todoLi);
           }
         },
