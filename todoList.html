@@ -19,6 +19,8 @@
     <button id='toggleOneButton'>Toggle One</button>
     <input id='toggleOnePositionInput' type='number'>
 
+    <ul></ul>
+
     <script>
 
       var todoList = {
@@ -35,6 +37,14 @@
                 console.log('( )', this.todos[i].todoText);
               }
             }
+          }
+        },
+        displayTodosToScreen: function () {
+          var todosUl = document.querySelector('ul');
+          todosUl.innerHTML = '';
+          for (var i = 0; i < this.todos.length; i++) {
+            var todoLi = document.createElement('li');
+            todosUl.appendChild(todoLi);
           }
         },
         addTodo: function (todoText) {
