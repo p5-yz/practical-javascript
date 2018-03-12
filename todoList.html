@@ -44,7 +44,13 @@
           todosUl.innerHTML = '';
           for (var i = 0; i < this.todos.length; i++) {
             var todoLi = document.createElement('li');
-            todoLi.textContent = this.todos[i].todoText;
+
+            if (todoList.todos[i].completed === true) {
+              todoLi.textContent = '(x) ' + this.todos[i].todoText;
+            } else {
+              todoLi.textContent = '( ) ' + this.todos[i].todoText;
+            }
+
             todosUl.appendChild(todoLi);
           }
         },
