@@ -7,7 +7,6 @@
 
   <body>
 
-    <button id='displayTodosButton'>Display Todos</button>
     <button id='toggleAllButton'>Toggle All</button>
     <button id='addTodoButton'>Add Todo</button>
     <input id='addTodoInput' type='text'>
@@ -25,20 +24,6 @@
 
       var todoList = {
         todos: [],
-        displayTodos: function () {
-          if (this.todos.length === 0) {
-            console.log('Your todo list is empty!');
-          } else {
-            console.log('My todos:');
-            for (var i = 0; i < this.todos.length; i++) {
-              if (this.todos[i].completed === true) {
-                console.log('(x)', this.todos[i].todoText);
-              } else {
-                console.log('( )', this.todos[i].todoText);
-              }
-            }
-          }
-        },
         displayTodosToScreen: function () {
           var todosUl = document.querySelector('ul');
           todosUl.innerHTML = '';
@@ -59,19 +44,15 @@
             todoText: todoText,
             completed: false
           });
-          this.displayTodos();
         },
         changeTodo: function (position, newTodoText) {
           this.todos[position].todoText = newTodoText;
-          this.displayTodos();
         },
         deleteTodo: function (position) {
           this.todos.splice(position, 1);
-          this.displayTodos();
         },
         toggleOne: function (position) {
           this.todos[position].completed = !this.todos[position].completed;
-          this.displayTodos();
         },
         toggleAll: function () {
           var completedTodos = 0;
@@ -94,21 +75,14 @@
               this.todos[i].completed = true;
             }
           }
-
-          this.displayTodos();
         }
       };
-
-      var displayTodosButton = document.getElementById('displayTodosButton');
-
-      displayTodosButton.addEventListener('click', function () {
-        todoList.displayTodos();
-      });
 
       var toggleAllButton = document.getElementById('toggleAllButton');
 
       toggleAllButton.addEventListener('click', function () {
         todoList.toggleAll();
+        todoList.displayTodosToScreen();
       });
 
       var addTodoButton = document.getElementById('addTodoButton');
@@ -117,6 +91,7 @@
       addTodoButton.addEventListener('click', function () {
         todoList.addTodo(addTodoInput.value);
         addTodoInput.value = '';
+        todoList.displayTodosToScreen();
       });
 
       var changeTodoButton = document.getElementById('changeTodoButton');
@@ -127,6 +102,7 @@
         todoList.changeTodo(changeTodoPositionInput.value, changeTodoTextInput.value);
         changeTodoPositionInput.value = '';
         changeTodoTextInput.value = '';
+        todoList.displayTodosToScreen();
       });
 
       var deleteTodoButton = document.getElementById('deleteTodoButton');
@@ -135,6 +111,7 @@
       deleteTodoButton.addEventListener('click', function () {
         todoList.deleteTodo(deleteTodoPositionInput.value);
         deleteTodoPositionInput.value = '';
+        todoList.displayTodosToScreen();
       });
 
       var toggleOneButton = document.getElementById('toggleOneButton');
@@ -143,6 +120,7 @@
       toggleOneButton.addEventListener('click', function () {
         todoList.toggleOne(toggleOnePositionInput.value);
         toggleOnePositionInput.value = '';
+        todoList.displayTodosToScreen();
       });
 
     </script>
