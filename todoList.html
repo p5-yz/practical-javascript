@@ -36,6 +36,8 @@
               todoLi.textContent = '( ) ' + this.todos[i].todoText;
             }
 
+            var deleteButton = this.createDeleteButton();
+            todoLi.appendChild(deleteButton);
             todosUl.appendChild(todoLi);
           }
         },
