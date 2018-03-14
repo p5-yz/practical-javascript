@@ -75,6 +75,11 @@
               this.todos[i].completed = true;
             }
           }
+        },
+        createDeleteButton: function () {
+          var deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Delete';
+          return deleteButton;
         }
       };
 
