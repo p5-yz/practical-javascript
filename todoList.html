@@ -36,7 +36,7 @@
               todoLi.textContent = '( ) ' + this.todos[i].todoText;
             }
 
-            var deleteButton = this.createDeleteButton();
+            var deleteButton = this.createDeleteButton(i);
             todoLi.appendChild(deleteButton);
             todosUl.appendChild(todoLi);
           }
@@ -78,9 +78,10 @@
             }
           }
         },
-        createDeleteButton: function () {
+        createDeleteButton: function (position) {
           var deleteButton = document.createElement('button');
           deleteButton.textContent = 'Delete';
+          deleteButton.id = position;
           return deleteButton;
         }
       };
