@@ -13,8 +13,6 @@
     <button id='changeTodoButton'>Change Todo</button>
     <input id='changeTodoPositionInput' type='number'>
     <input id='changeTodoTextInput' type='text'>
-    <button id='toggleOneButton'>Toggle One</button>
-    <input id='toggleOnePositionInput' type='number'>
 
     <ul></ul>
 
@@ -34,6 +32,8 @@
               todoLi.textContent = '( ) ' + this.todos[i].todoText;
             }
 
+            var toggleOneButton = this.createToggleOneButton(i);
+            todoLi.appendChild(toggleOneButton);
             var deleteButton = this.createDeleteButton(i);
             todoLi.appendChild(deleteButton);
             todosUl.appendChild(todoLi);
@@ -114,15 +114,6 @@
         todoList.changeTodo(changeTodoPositionInput.value, changeTodoTextInput.value);
         changeTodoPositionInput.value = '';
         changeTodoTextInput.value = '';
-        todoList.displayTodosToScreen();
-      });
-
-      var toggleOneButton = document.getElementById('toggleOneButton');
-      var toggleOnePositionInput = document.getElementById('toggleOnePositionInput');
-
-      toggleOneButton.addEventListener('click', function () {
-        todoList.toggleOne(toggleOnePositionInput.value);
-        toggleOnePositionInput.value = '';
         todoList.displayTodosToScreen();
       });
 
