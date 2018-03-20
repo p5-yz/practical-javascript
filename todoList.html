@@ -126,6 +126,11 @@
           todoList.displayTodosToScreen();
         }
 
+        if (event.target.id.includes('toggleOne')) {
+          todoList.toggleOne(event.target.id.split('-')[1]);
+          todoList.displayTodosToScreen();
+        }
+
       });
 
     </script>
