@@ -87,6 +87,12 @@
           toggleOneButton.textContent = 'Toggle';
           toggleOneButton.id = 'toggleOne-' + position;
           return toggleOneButton;
+        },
+        createChangeTodoButton: function (position) {
+          var changeTodoButton = document.createElement('button');
+          changeTodoButton.textContent = 'Edit';
+          changeTodoButton.id = 'changeTodo-' + position;
+          return changeTodoButton;
         }
       };
 
