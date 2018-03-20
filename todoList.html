@@ -79,7 +79,7 @@
         createDeleteButton: function (position) {
           var deleteButton = document.createElement('button');
           deleteButton.textContent = 'Delete';
-          deleteButton.id = position;
+          deleteButton.id = 'delete-' + position;
           return deleteButton;
         },
         createToggleOneButton: function (position) {
@@ -121,8 +121,8 @@
 
       todosUl.addEventListener('click', function (event) {
 
-        if (event.target.tagName === 'BUTTON') {
-          todoList.deleteTodo(event.target.id);
+        if (event.target.id.includes('delete')) {
+          todoList.deleteTodo(event.target.id.split('-')[1]);
           todoList.displayTodosToScreen();
         }
 
